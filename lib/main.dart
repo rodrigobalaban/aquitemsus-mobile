@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +29,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late String _mapStyle;
+
+  @override
+  void initState() {
+    super.initState();
+    SchedulerBinding.instance?.addPostFrameCallback((_) {
+      rootBundle.loadString('assets/styles/map_style.json').then((string) {
+        _mapStyle = string;
+      });
+    });
+  }
+
+  void _onMapCreated(GoogleMapController controller) {
+    controller.setMapStyle(_mapStyle);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +52,13 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: null,
         child: Icon(Icons.search),
         backgroundColor: Colors.blue,
+      ),
+      body: GoogleMap(
+        initialCameraPosition: const CameraPosition(
+          target: LatLng(-26.226583568552600, -51.059303283691400),
+          zoom: 15,
+        ),
+        onMapCreated: _onMapCreated,
       ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
