@@ -1,6 +1,6 @@
-import 'establishment-category.dart';
+import 'establishment_category.dart';
 import 'location.dart';
-import 'office-hour.dart';
+import 'office_hour.dart';
 
 class Establishment {
   int? id;
