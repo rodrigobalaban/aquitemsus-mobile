@@ -1,8 +1,8 @@
 import 'dart:ffi';
 
 class Location {
-  Float latitude;
-  Float longitude;
+  double latitude;
+  double longitude;
 
   Location(this.latitude, this.longitude);
 }
