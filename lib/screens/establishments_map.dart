@@ -1,4 +1,8 @@
+import 'dart:collection';
+
+import 'package:aquitemsus/models/establishment.dart';
 import 'package:aquitemsus/models/location.dart';
+import 'package:aquitemsus/utils/establishment_service.dart';
 import 'package:aquitemsus/utils/location_service.dart';
 import 'package:aquitemsus/widgets/nav_bar.dart';
 import 'package:flutter/material.dart';
@@ -13,14 +17,17 @@ class EstablishmentsMap extends StatefulWidget {
 }
 
 class _EstablishmentMapState extends State<EstablishmentsMap> {
+  late List<Establishment> _establishments;
   late String _mapStyle;
   late Location _userLocation;
+  final Set<Marker> _markers = HashSet<Marker>();
 
   @override
   initState() {
     super.initState();
     _loadMapStyle();
     _getUserLocation();
+    _showEstablishmentsNearby();
   }
 
   void _loadMapStyle() {
@@ -36,6 +43,24 @@ class _EstablishmentMapState extends State<EstablishmentsMap> {
 
   void _onMapCreated(GoogleMapController controller) {
     controller.setMapStyle(_mapStyle);
+  }
+
+  _showEstablishmentsNearby() async {
+    _establishments = await EstablishmentService().getEstablishmentsNearby();
+    _setMarkers();
+  }
+
+  _setMarkers() async {
+    for (var establishment in _establishments) {
+      _markers.add(Marker(
+          markerId: MarkerId(establishment.id.toString()),
+          icon: await BitmapDescriptor.fromAssetImage(
+              ImageConfiguration.empty,
+              EstablishmentService()
+                  .getIconPathByCategory(establishment.category)),
+          position: LatLng(establishment.location.latitude,
+              establishment.location.longitude)));
+    }
   }
 
   @override
@@ -59,6 +84,7 @@ class _EstablishmentMapState extends State<EstablishmentsMap> {
                   zoom: 15,
                 ),
                 onMapCreated: _onMapCreated,
+                markers: _markers,
               );
             } else {
               return const Text('Carregando localização...');

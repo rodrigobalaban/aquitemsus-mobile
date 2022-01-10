@@ -1,0 +1,208 @@
+[
+    {
+        "id": 2567083,
+        "name": "UNIDADE DE SAUDE PADRE SANTO MARIO GRANZOTTO I",
+        "category": {
+            "id": 1,
+            "name": "CENTRO DE SAUDE/UNIDADE BASICA"
+        },
+        "officeHours": [],
+        "phones": [],
+        "address": {
+            "street": "Rua Exemplo",
+            "number": "123",
+            "district": "São Braz",
+            "city": {
+                "name": "União da Vitória",
+                "ibgeCode": "41",
+                "state": "PR"
+            }
+        },
+        "professionals": [
+            {
+                "id": 1,
+                "name": "Profissional Exemplo",
+                "specialties": []
+            }
+        ],
+        "specialties": [],
+        "location": {
+            "latitude": -26.226583568552600,
+            "longitude": -51.059303283691400
+        }
+    },
+    {
+        "id": 2567083,
+        "name": "UNIDADE DE SAUDE PADRE SANTO MARIO GRANZOTTO II",
+        "category": {
+            "id": 1,
+            "name": "CENTRO DE SAUDE/UNIDADE BASICA"
+        },
+        "officeHours": [],
+        "phones": [],
+        "address": {
+            "street": "Rua Exemplo",
+            "number": "123",
+            "district": "São Braz",
+            "city": {
+                "name": "União da Vitória",
+                "ibgeCode": "41",
+                "state": "PR"
+            }
+        },
+        "professionals": [
+            {
+                "id": 1,
+                "name": "Profissional Exemplo",
+                "specialties": []
+            }
+        ],
+        "specialties": [],
+        "location": {
+            "latitude": -26.22667981190430,
+            "longitude": -51.05724334716790
+        }
+    },
+    {
+        "id": 9303944,
+        "name": "FARMACIA MUNICIPAL",
+        "category": {
+            "id": 2,
+            "name": "FARMACIA"
+        },
+        "officeHours": [],
+        "phones": [],
+        "address": {
+            "street": "Rua Exemplo",
+            "number": "123",
+            "district": "São Braz",
+            "city": {
+                "name": "União da Vitória",
+                "ibgeCode": "41",
+                "state": "PR"
+            }
+        },
+        "professionals": [
+            {
+                "id": 1,
+                "name": "Profissional Exemplo",
+                "specialties": []
+            }
+        ],
+        "specialties": [],
+        "location": {
+            "latitude": -26.227622992536800,
+            "longitude": -51.083528995513900
+        }
+    },
+    {
+        "id": 2567288,
+        "name": "UNIDADE DE SAUDE SAO BRAZ",
+        "category": {
+            "id": 1,
+            "name": "CENTRO DE SAUDE/UNIDADE BASICA"
+        },
+        "officeHours": [
+            {
+                "dayOfWeek": 1,
+                "start": "07:00",
+                "end": "19:00"
+            },
+            {
+                "dayOfWeek": 2,
+                "start": "07:00",
+                "end": "19:00"
+            },
+            {
+                "dayOfWeek": 3,
+                "start": "07:00",
+                "end": "19:00"
+            },
+            {
+                "dayOfWeek": 4,
+                "start": "07:00",
+                "end": "19:00"
+            },
+            {
+                "dayOfWeek": 5,
+                "start": "07:00",
+                "end": "19:00"
+            }
+        ],
+        "phones": [
+            "(42) 3522-2811"
+        ],
+        "email": "dir.saudeuva@hotmail.com",
+        "address": {
+            "street": "Rua José Rudnicki",
+            "number": "470",
+            "district": "São Bras",
+            "city": {
+                "name": "União da Vitória",
+                "ibgeCode": "412820",
+                "state": "PR"
+            }
+        },
+        "professionals": [
+            {
+                "id": 1,
+                "name": "Profissional Exemplo",
+                "specialties": []
+            }
+        ],
+        "specialties": [
+            {
+                "id": 1,
+                "name": "Clínica Geral"
+            },
+            {
+                "id": 2,
+                "name": "Pediatria"
+            },
+            {
+                "id": 3,
+                "name": "Ginecologia e Obstetrícia"
+            },            
+            {
+                "id": 4,
+                "name": "Odontologia"
+            }
+        ],
+        "location": {
+            "latitude": -26.233416648602700,
+            "longitude": -51.04778051376340
+        }
+    },
+    {
+        "id": 2567083,
+        "name": "UNIDADE DE SAUDE SAO SEBASTIAO",
+        "category": {
+            "id": 1,
+            "name": "CENTRO DE SAUDE/UNIDADE BASICA"
+        },
+        "officeHours": [],
+        "phones": [],
+        "address": {
+            "street": "Rua Exemplo",
+            "number": "123",
+            "district": "São Braz",
+            "city": {
+                "name": "União da Vitória",
+                "ibgeCode": "41",
+                "state": "PR"
+            }
+        },
+        "professionals": [
+            {
+                "id": 1,
+                "name": "Profissional Exemplo",
+                "specialties": []
+            }
+        ],
+        "specialties": [],
+        "location": {
+            "latitude": -26.22352298843240,
+            "longitude": -51.03179454803460
+        }
+    }
+]
