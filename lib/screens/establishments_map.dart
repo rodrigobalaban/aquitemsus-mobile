@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:ui';
 
 import 'package:aquitemsus/models/establishment.dart';
 import 'package:aquitemsus/models/location.dart';
@@ -113,18 +114,19 @@ class _EstablishmentMapState extends State<EstablishmentsMap> {
                       style: TextStyle(
                           color: Color.fromRGBO(154, 154, 154, 1), height: 1.5),
                     ),
-                    const Text(
-                      'Clique para ver mais informações',
-                      style: TextStyle(
-                        color: Colors.black87,
-                        fontSize: 9,
+                    GestureDetector(
+                      onTap: () => _showDetailsEstablishment(establishment),
+                      child: const Text(
+                        'Clique para ver mais informações',
+                        style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 9,
+                        ),
                       ),
                     )
                   ],
                 ),
               ),
-              width: double.infinity,
-              height: double.infinity,
             ),
           ),
           Triangle.isosceles(
@@ -138,6 +140,172 @@ class _EstablishmentMapState extends State<EstablishmentsMap> {
         ],
       ),
       position,
+    );
+  }
+
+  _showDetailsEstablishment(Establishment establishment) {
+    var styleTitle = const TextStyle(
+        fontSize: 10,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+        decoration: TextDecoration.none);
+    var styleValue = const TextStyle(
+      fontSize: 10,
+      color: Colors.black,
+      fontWeight: FontWeight.normal,
+      decoration: TextDecoration.none,
+    );
+
+    showDialog(
+      context: context,
+      barrierColor: Colors.transparent,
+      builder: (BuildContext context) => Center(
+          child: ClipRect(
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+          child: Container(
+            width: 350,
+            height: 600,
+            decoration: BoxDecoration(color: Colors.white.withOpacity(0.5)),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    establishment.category.name,
+                    style: const TextStyle(
+                        color: Color.fromRGBO(84, 133, 229, 1),
+                        fontSize: 12,
+                        decoration: TextDecoration.none,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    establishment.name,
+                    style: const TextStyle(
+                        decoration: TextDecoration.none,
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const Divider(),
+                  Row(
+                    children: [
+                      const Icon(Icons.place_outlined),
+                      const SizedBox(
+                        width: 10.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Endereço', style: styleTitle),
+                          Text('Rua José Rudnicki, 470', style: styleValue),
+                          Text(
+                            'São Bras',
+                            style: styleValue,
+                          ),
+                          Text(
+                            'União da Vitória - PR',
+                            style: styleValue,
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+                  Row(
+                    children: [
+                      const Icon(Icons.phone_outlined),
+                      const SizedBox(
+                        width: 10.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Telefone',
+                            style: styleTitle,
+                          ),
+                          Text(
+                            '(42) 3522-2811',
+                            style: styleValue,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+                  Row(
+                    children: [
+                      const Icon(Icons.mail_outline),
+                      const SizedBox(
+                        width: 10.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'E-mail',
+                            style: styleTitle,
+                          ),
+                          Text(
+                            'dir.saudeuva@hotmail.com',
+                            style: styleValue,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+                  Row(
+                    children: [
+                      const Icon(Icons.schedule_outlined),
+                      const SizedBox(
+                        width: 10.0,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Horário de Atendimento',
+                            style: styleTitle,
+                          ),
+                          Text(
+                            'Segunda: 07:00h - 19:00h',
+                            style: styleValue,
+                          ),
+                          Text(
+                            'Terça: 07:00h - 19:00h',
+                            style: styleValue,
+                          ),
+                          Text(
+                            'Quarta: 07:00h - 19:00h',
+                            style: styleValue,
+                          ),
+                          Text(
+                            'Quinta: 07:00h - 19:00h',
+                            style: styleValue,
+                          ),
+                          Text(
+                            'Sexta: 07:00h - 19:00h',
+                            style: styleValue,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      )),
     );
   }
 
